@@ -56,4 +56,13 @@ class FastResponse
     {
         return response()->json(self::buildError($msg, $code), $httpCode);
     }
+
+
+    /**
+     * @return JsonResponse
+     */
+    public static function forbidden(): JsonResponse
+    {
+        return response()->json(self::buildError("禁止该操作", 403), 403);
+    }
 }

@@ -53,5 +53,6 @@ php8 artisan user:token 1 -F
 
 # 从现有的Mysql中生成后台CRUD
 php8 artisan infyom:scaffold AppUser --fromTable  --table=app_users 
+php8 artisan infyom:scaffold User --fromTable  --table=users 
 
 ```

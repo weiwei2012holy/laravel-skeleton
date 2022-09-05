@@ -24,3 +24,5 @@ Auth::routes();
 # [index,create,store,show,edit,update,destroy]
 # APP 用户管理
 Route::resource('appUsers', App\Http\Controllers\AppUserController::class)->except(['destroy','show']);
+
+Route::resource('users', App\Http\Controllers\UserController::class);
