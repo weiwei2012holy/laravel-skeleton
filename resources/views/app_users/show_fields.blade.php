@@ -7,6 +7,6 @@
 <!-- Avatar Field -->
 <div class="col-sm-12">
     {!! Form::label('avatar', 'Avatar:') !!}
-    <p>{{ $appUser->avatar }}</p>
+    <p><img src="{{ $appUser->avatar }}" alt=""></p>
 </div>
 

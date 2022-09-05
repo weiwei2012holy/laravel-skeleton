@@ -7,6 +7,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 abstract class BaseRepository
 {
@@ -70,6 +71,9 @@ abstract class BaseRepository
 
         if (count($search)) {
             foreach($search as $key => $value) {
+                if (is_null($value)) {
+                    continue;
+                }
                 if (in_array($key, $this->getFieldsSearchable())) {
                     $query->where($key, $value);
                 }
@@ -82,6 +86,19 @@ abstract class BaseRepository
 
         if (!is_null($limit)) {
             $query->limit($limit);
+        }
+
+        //关联
+        if (Arr::get($search, 'with')) {
+            $query->with(Arr::get($search, 'with'));
+        }
+        //关联计数
+        if (Arr::get($search, 'with_count')) {
+            $query->withCount(Arr::get($search, 'with_count'));
+        }
+        //排序
+        if (Arr::get($search, 'order_by')) {
+            $query->orderByRaw(Arr::get($search, 'order_by'));
         }
 
         return $query;

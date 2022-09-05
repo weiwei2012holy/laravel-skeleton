@@ -128,15 +128,4 @@ class AppUserController extends AppBaseController
     }
 
 
-    public function tokens($id)
-    {
-        $appUser = $this->appUserRepository->find($id);
-
-        if (empty($appUser)) {
-            Flash::error(__('messages.user_not_found'));
-
-            return redirect(route('appUsers.index'));
-        }
-
-    }
 }

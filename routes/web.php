@@ -21,6 +21,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-
+# [index,create,store,show,edit,update,destroy]
 # APP 用户管理
-Route::resource('appUsers', App\Http\Controllers\AppUserController::class);
+Route::resource('appUsers', App\Http\Controllers\AppUserController::class)->except(['destroy','show']);
