@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use InfyOm\Generator\Utils\ResponseUtil;
+use App\Lib\FastResponse;
+use Illuminate\Http\JsonResponse;
 
 /**
  * @OA\Server(url="/api")
@@ -15,21 +16,35 @@ use InfyOm\Generator\Utils\ResponseUtil;
  */
 class AppBaseController extends Controller
 {
-    public function sendResponse($result, $message)
+
+    /**
+     * @param $result
+     * @param string $message
+     * @return JsonResponse
+     */
+    public function sendResponse($result, string $message = "成功"): \Illuminate\Http\JsonResponse
     {
-        return response()->json(ResponseUtil::makeResponse($message, $result));
+        return FastResponse::success($result, $message);
     }
 
-    public function sendError($error, $code = 404)
+    /**
+     * @param string $error
+     * @param int $httpCode
+     * @param int $code
+     * @return JsonResponse
+     */
+    public function sendError(string $error, int $httpCode = 400, int $code = 400): \Illuminate\Http\JsonResponse
     {
-        return response()->json(ResponseUtil::makeError($error), $code);
+
+        return FastResponse::error($error, $code, $httpCode);
     }
 
-    public function sendSuccess($message)
+    /**
+     * @param string $message
+     * @return JsonResponse
+     */
+    public function sendSuccess(string$message = '成功'): \Illuminate\Http\JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'message' => $message
-        ], 200);
+        return FastResponse::success([], $message);
     }
 }

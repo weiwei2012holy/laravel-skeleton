@@ -13,7 +13,7 @@ class AppUser extends Model
 
     public $table = 'app_users';
 
-    protected $guard = 'api';
+//    protected $guard = 'api';
 
 
     public $fillable = [
