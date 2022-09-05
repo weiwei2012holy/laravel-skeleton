@@ -14,6 +14,7 @@ class AppUserController extends AppBaseController
     /** @var AppUserRepository $appUserRepository*/
     private $appUserRepository;
 
+
     public function __construct(AppUserRepository $appUserRepo)
     {
         $this->appUserRepository = $appUserRepo;
@@ -60,7 +61,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error('App User not found');
+            Flash::error(__('messages.user_not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -76,7 +77,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error('App User not found');
+            Flash::error(__('messages.user_not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -92,7 +93,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error('App User not found');
+            Flash::error(__('messages.user_not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -114,7 +115,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error('App User not found');
+            Flash::error(__('messages.user_not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -124,5 +125,18 @@ class AppUserController extends AppBaseController
         Flash::success('App User deleted successfully.');
 
         return redirect(route('appUsers.index'));
+    }
+
+
+    public function tokens($id)
+    {
+        $appUser = $this->appUserRepository->find($id);
+
+        if (empty($appUser)) {
+            Flash::error(__('messages.user_not_found'));
+
+            return redirect(route('appUsers.index'));
+        }
+
     }
 }
