@@ -1,0 +1,75 @@
+[
+    {
+        "name": "id",
+        "dbType": "bigInteger,true:comment,'id'",
+        "htmlType": "number",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": true,
+        "inView": false
+    },
+    {
+        "name": "name",
+        "dbType": "string,50:comment,'用户名'",
+        "htmlType": "text",
+        "validations": "required|min:6|max:50",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "sex",
+        "dbType": "tinyInteger:comment,'性别'",
+        "htmlType": "radio:男:1,女:2,未知:0",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "roles",
+        "dbType": "json:comment,'角色'",
+        "htmlType": "checkbox:客服:1,销售:2,管理员:3,超级管理员:4",
+        "validations": "array",
+        "searchable": false,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": true
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": true
+    }
+
+]

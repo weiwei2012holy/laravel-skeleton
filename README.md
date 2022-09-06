@@ -55,6 +55,11 @@ php8 artisan user:token 1 -F
 php8 artisan infyom:scaffold AppUser --fromTable  --table=app_users 
 php8 artisan infyom:scaffold User --fromTable  --table=users 
 
+# 从文件生成
+php8 artisan infyom:scaffold Demo --fieldsFile=Demo.json 
+# 回滚（删除生成的文件）
+php8 artisan infyom:rollback Demo scaffold
+
 ```
 
 ### 数据JSON描述文件
@@ -65,7 +70,7 @@ php8 artisan infyom:scaffold User --fromTable  --table=users
   - `select`:Draft:1,Published:2,Archived:3
   - `enum`同上
   - `radio`:Blog:1,Event:2,Guest:3
-  - `checkbox`
+  - `checkbox` 貌似不支持
   - ...
 - validations: 表单验证规则
 - searchable: 是否支持搜索
@@ -75,3 +80,27 @@ php8 artisan infyom:scaffold User --fromTable  --table=users
 - inIndex: 列表是否展示(index)
 - inView: 详情是否展示(show)
 
+#### checkbox代码参考
+```html
+<!-- Roles Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('sex', __('models/demos.fields.roles'), ['class' => 'form-check-label']) !!}
+    <div class="form-check">
+        {!! Form::checkbox('roles[]', '1', null, ['class' => 'form-check-input','id'=>'roles-1']) !!}
+        {!! Form::label('roles-1', '客服', ['class' => 'form-check-label']) !!}
+    </div>
+    <div class="form-check">
+        {!! Form::checkbox('roles[]', '2', null, ['class' => 'form-check-input','id'=>'roles-2']) !!}
+        {!! Form::label('roles-2', '销售', ['class' => 'form-check-label']) !!}
+    </div>
+    <div class="form-check">
+        {!! Form::checkbox('roles[]', '3', null, ['class' => 'form-check-input','id'=>'roles-3']) !!}
+        {!! Form::label('roles-3', '管理员', ['class' => 'form-check-label']) !!}
+    </div>
+    <div class="form-check">
+        {!! Form::checkbox('roles[]', '4', null, ['class' => 'form-check-input','id'=>'roles-4']) !!}
+        {!! Form::label('roles-4', '超级管理员', ['class' => 'form-check-label']) !!}
+    </div>
+</div>
+
+```

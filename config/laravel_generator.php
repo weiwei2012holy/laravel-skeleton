@@ -130,7 +130,7 @@ return [
 
     'options' => [
 
-        'soft_delete' => false,
+        'soft_delete' => true,
 
         'save_schema_file' => true,
 
