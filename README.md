@@ -51,6 +51,9 @@ php artisan infyom:api_scaffold $MODEL_NAME
 # 清除用户所有的token并且生成一个新的
 php8 artisan user:token 1 -F
 
+# 设置管理员账号
+php8 artisan admin:user
+
 # 从现有的Mysql中生成后台CRUD
 php8 artisan infyom:scaffold AppUser --fromTable  --table=app_users 
 php8 artisan infyom:scaffold User --fromTable  --table=users 
