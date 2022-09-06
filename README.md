@@ -56,3 +56,22 @@ php8 artisan infyom:scaffold AppUser --fromTable  --table=app_users
 php8 artisan infyom:scaffold User --fromTable  --table=users 
 
 ```
+
+### 数据JSON描述文件
+
+- name: 数据库字段名称
+- dbType: 数据库迁移数据类型,参考`Laravel 迁移文件`语法,后面可以接`:`分割方法,`,`分割参数，格式`{类型},{参数1},{参数2},{...}:{方法1},{方法参数1},{...}` 如 `$table->string('nickname',50)`=>`string,50:default,`
+- htmlType: 表单显示数据类型,参考`html input标签`语法, 格式`{类型}:{K},{V}:{K2},{V2}...`,代码见`HTMLFieldGenerator`
+  - `select`:Draft:1,Published:2,Archived:3
+  - `enum`同上
+  - `radio`:Blog:1,Event:2,Guest:3
+  - `checkbox`
+  - ...
+- validations: 表单验证规则
+- searchable: 是否支持搜索
+- fillable: 是否可以填充属性
+- primary: 主键
+- inForm: 表单是否展示(create, update)
+- inIndex: 列表是否展示(index)
+- inView: 详情是否展示(show)
+
