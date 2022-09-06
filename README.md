@@ -62,6 +62,8 @@ php8 artisan infyom:scaffold User --fromTable  --table=users
 php8 artisan infyom:scaffold Demo --fieldsFile=Demo.json 
 # 回滚（删除生成的文件）
 php8 artisan infyom:rollback Demo scaffold
+# 只更新controller
+php8 artisan infyom.scaffold:controller AppUser --fromTable  --table=app_users 
 
 ```
 

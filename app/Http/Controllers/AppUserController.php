@@ -14,7 +14,6 @@ class AppUserController extends AppBaseController
     /** @var AppUserRepository $appUserRepository*/
     private $appUserRepository;
 
-
     public function __construct(AppUserRepository $appUserRepo)
     {
         $this->appUserRepository = $appUserRepo;
@@ -48,7 +47,7 @@ class AppUserController extends AppBaseController
 
         $appUser = $this->appUserRepository->create($input);
 
-        Flash::success('App User saved successfully.');
+        Flash::success(__('messages.saved', ['model' => __('models/app_users.singular')]));
 
         return redirect(route('appUsers.index'));
     }
@@ -61,7 +60,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error(__('messages.user_not_found'));
+            Flash::error(__('models/app_users.singular').' '.__('messages.not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -77,7 +76,7 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error(__('messages.user_not_found'));
+            Flash::error(__('models/app_users.singular').' '.__('messages.not_found'));
 
             return redirect(route('appUsers.index'));
         }
@@ -93,14 +92,14 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error(__('messages.user_not_found'));
+            Flash::error(__('models/app_users.singular').' '.__('messages.not_found'));
 
             return redirect(route('appUsers.index'));
         }
 
         $appUser = $this->appUserRepository->update($request->all(), $id);
 
-        Flash::success('App User updated successfully.');
+        Flash::success(__('messages.updated', ['model' => __('models/app_users.singular')]));
 
         return redirect(route('appUsers.index'));
     }
@@ -115,17 +114,15 @@ class AppUserController extends AppBaseController
         $appUser = $this->appUserRepository->find($id);
 
         if (empty($appUser)) {
-            Flash::error(__('messages.user_not_found'));
+            Flash::error(__('models/app_users.singular').' '.__('messages.not_found'));
 
             return redirect(route('appUsers.index'));
         }
 
         $this->appUserRepository->delete($id);
 
-        Flash::success('App User deleted successfully.');
+        Flash::success(__('messages.deleted', ['model' => __('models/app_users.singular')]));
 
         return redirect(route('appUsers.index'));
     }
-
-
 }
