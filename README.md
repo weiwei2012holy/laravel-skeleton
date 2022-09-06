@@ -107,3 +107,7 @@ php8 artisan infyom:rollback Demo scaffold
 </div>
 
 ```
+
+### 用户表
+- 管理员: User，框架自带的，用来做后台管理员
+- 应用用户: AppUser,基本上做任何一个应用都需要定义用户表，可以修改这个模型对应的迁移文件支持个性化的业务需求
