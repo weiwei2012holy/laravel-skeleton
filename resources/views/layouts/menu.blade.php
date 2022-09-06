@@ -7,15 +7,15 @@
 </li>
 <li class="nav-item">
     <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-user"></i>
         <p>@lang('models/users.plural')</p>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('appUsers.index') }}" class="nav-link {{ Request::is('appUsers*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
-        <p>用户管理</p>
+        <i class="nav-icon fas fa-users"></i>
+        <p>@lang('models/app_users.plural')</p>
     </a>
 </li>
 

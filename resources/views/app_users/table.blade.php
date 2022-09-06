@@ -3,9 +3,9 @@
         <table class="table" id="app-users-table">
             <thead>
             <tr>
-                <th>昵称</th>
-                <th>头像</th>
-                <th colspan="3">操作</th>
+                <th>@lang('models/app_users.fields.nickname')</th>
+                <th>@lang('models/app_users.fields.avatar')</th>
+                <th colspan="3">@lang('crud.action')</th>
             </tr>
             </thead>
             <tbody>

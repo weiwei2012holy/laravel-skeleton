@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 abstract class BaseRepository
 {
@@ -37,9 +38,9 @@ abstract class BaseRepository
     /**
      * Make Model instance
      *
+     * @return Model
      * @throws \Exception
      *
-     * @return Model
      */
     public function makeModel()
     {
@@ -70,11 +71,16 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if (count($search)) {
-            foreach($search as $key => $value) {
+            foreach ($search as $key => $value) {
                 if (is_null($value)) {
                     continue;
                 }
                 if (in_array($key, $this->getFieldsSearchable())) {
+                    //增加模糊匹配
+                    if (Str::startsWith($value, '%') || Str::endsWith($value, '%')) {
+                        $query->where($key, 'like', $value);
+                        continue;
+                    }
                     $query->where($key, $value);
                 }
             }
@@ -157,9 +163,9 @@ abstract class BaseRepository
     }
 
     /**
+     * @return bool|mixed|null
      * @throws \Exception
      *
-     * @return bool|mixed|null
      */
     public function delete(int $id)
     {

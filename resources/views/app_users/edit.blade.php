@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Edit App User
+                        @lang('crud.edit') @lang('models/app_users.singular')
                     </h1>
                 </div>
             </div>
