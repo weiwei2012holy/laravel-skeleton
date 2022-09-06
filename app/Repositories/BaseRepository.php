@@ -105,6 +105,9 @@ abstract class BaseRepository
         //排序
         if (Arr::get($search, 'order_by')) {
             $query->orderByRaw(Arr::get($search, 'order_by'));
+        }else{
+            //默认主键倒序
+            $query->orderByDesc($this->model->getKeyName());
         }
 
         return $query;

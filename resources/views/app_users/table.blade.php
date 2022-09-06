@@ -5,6 +5,7 @@
             <tr>
                 <th>@lang('models/app_users.fields.nickname')</th>
                 <th>@lang('models/app_users.fields.avatar')</th>
+                <th>@lang('crud.created_at')</th>
                 <th colspan="3">@lang('crud.action')</th>
             </tr>
             </thead>
@@ -13,6 +14,8 @@
                 <tr>
                     <td>{{ $appUser->nickname }}</td>
                     <td><img src="{{ $appUser->avatar }}" style="max-width: 50px"></td>
+                    <td>{{ $appUser->created_at }}</td>
+
                     <td  style="width: 120px">
 {{--                        {!! Form::open(['route' => ['appUsers.destroy', $appUser->id], 'method' => 'delete']) !!}--}}
                         <div class='btn-group'>
