@@ -1,0 +1,9 @@
+.img-circle {
+    border-radius: 50%;
+}
+.img-rounded {
+    border-radius: 6px;
+}
+.img-thumb {
+    width: 80px;
+}

@@ -10,6 +10,7 @@
           crossorigin="anonymous"/>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/my-app.css') }}" rel="stylesheet">
 
     @stack('third_party_stylesheets')
 

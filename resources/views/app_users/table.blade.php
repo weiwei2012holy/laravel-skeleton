@@ -13,7 +13,7 @@
             @foreach($appUsers as $appUser)
                 <tr>
                     <td>{{ $appUser->nickname }}</td>
-                    <td><img src="{{ $appUser->avatar }}" style="max-width: 50px"></td>
+                    <td><img class="img-thumb img-circle" src="{{ $appUser->avatar }}"></td>
                     <td>{{ $appUser->created_at }}</td>
 
                     <td  style="width: 120px">
