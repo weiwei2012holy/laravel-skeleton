@@ -10,8 +10,10 @@
           crossorigin="anonymous"/>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/zui/1.10.0/css/zui.min.css">
+{{--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/zui/1.10.0/css/zui.min.css">--}}
     <link href="{{ asset('css/my-app.css') }}" rel="stylesheet">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     @stack('third_party_stylesheets')
 
@@ -81,6 +83,7 @@
 </div>
 
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 @stack('third_party_scripts')
 
